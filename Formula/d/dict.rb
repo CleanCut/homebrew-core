@@ -26,9 +26,6 @@ class Dict < Formula
   end
 
   def install
-    # Workaround for Xcode 14.3
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
-
     ENV["ac_cv_search_yywrap"] = "yes"
     ENV["LIBTOOL"] = "glibtool"
     system "./configure", "--mandir=#{man}",
